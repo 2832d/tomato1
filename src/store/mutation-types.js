@@ -1,0 +1,1 @@
+export const RECEIVE_TITLES = "receive_titles"
