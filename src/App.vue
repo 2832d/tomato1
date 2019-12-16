@@ -1,8 +1,8 @@
 <template>
   <div>
-    good time
+    <router-view />
   </div>
-</template>
+</template>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
 <script>
 export default {
 }
