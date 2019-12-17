@@ -1,4 +1,4 @@
-# my-prototype
+# zhihu-demo
 
 ## Project setup
 ```
