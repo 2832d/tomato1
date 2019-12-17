@@ -17,19 +17,19 @@ axios.interceptors.request.use(config => {
   // 判断当前的接口是否需要携带token
   if (config.headers.needToken) {
     // 此时需要携带token,取出token
-    
+
     const token = store.state.token
     console.log(token)
     // 判断token是否存在
     if (!token) {
-      
+
       const error = new Error('没有token,请重新登录')
       // 设置错误码
       error.status = 401
       throw error // 抛出一个错误信息
     } else {
       // 有token,把token添加到请求头中
-      
+
       config.headers.authorization = token
     }
   }
@@ -43,7 +43,7 @@ axios.interceptors.response.use(response => {
   if (!error.response) {
     // 请求的错误
     if (error.status === 401) {
-    
+
       // 跳转到/login登录界面---先判断是不是login界面---currentRoute当前的路由组件
       if (router.currentRoute.path !== '/login') {
          // 提示错误信息
@@ -76,4 +76,3 @@ axios.interceptors.response.use(response => {
 })
 // 暴露axios
 export default axios
-

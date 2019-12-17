@@ -34,7 +34,7 @@
               <div
                 class="li-2-icon2"
                 @click="isTrue"
-              >{{isRightPhone===true?`已发送(${computedTime}s)`:'获取短信验证码'}}</div>
+              >{{computedTime>0?`已发送(${computedTime}s)`:'获取短信验证码'}}</div>
             </li>
             <li class="li-3">接收语音验证码</li>
             <li class="li-4" @click="login">注册/登录</li>
@@ -44,7 +44,7 @@
             <li class="li-1">
               <input
                 class="li-1-icon2"
-                placeholder="手机号"
+                placeholder="账号"
                 v-validate="'required'"
                 v-model="name"
                 name="name"
@@ -67,7 +67,7 @@
         </div>
       </div>
       <div class="login-icon">
-        <div class="icon-sj">社交帐号登录</div>
+        <div class="icon-sj">社交帐号</div>
 
         <div class="icon-wx">微信</div>
 
@@ -115,7 +115,9 @@ export default {
     },
     isTrue() {
       if (this.isBoolean) {
-        if (this.isRightPhone) {
+        console.log(this.isRightPhone())
+        if (this.isRightPhone()) {
+          console.log(this.isRightPhone())
           this.sendCode();
         }
       }
